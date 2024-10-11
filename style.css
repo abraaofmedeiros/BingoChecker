@@ -1,0 +1,21 @@
+.bingo-card {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  gap: 2px;
+  max-width: 200px;
+}
+
+.bingo-number {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #4CAF50;
+  color: white;
+}
