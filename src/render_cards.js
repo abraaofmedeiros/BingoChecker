@@ -1,13 +1,16 @@
 const cards_container = document.getElementById("cards_container");
 
-function render_card(card) {
-    const card_container = document.createElement('div');
+function generate_card_node(card) {
+    let card_container = document.createElement('div');
     card_container.classList.add('card-container');
+    card_container.setAttribute('data-card-id', card.id);
 
     bingo_card_element = document.createElement('div');
     bingo_card_element.classList.add('bingo-card');
 
-    card.numbers.forEach(number => {
+    numbers = card.numbers.sort((a, b) => a - b);
+
+    numbers.forEach(number => {
         const element = document.createElement('div');
         element.classList.add('bingo-number');
         element.textContent = number;
@@ -22,7 +25,10 @@ function render_card(card) {
     editBtn.textContent = "editar";
 
     editBtn.addEventListener("click", () => {
-        // implementar
+        edit_card_node = generate_edit_card_node(card);
+
+        updateCardNode(card.id, edit_card_node);
+        render_cards_container();
     })
 
     card_container.appendChild(editBtn);
@@ -43,10 +49,7 @@ function render_card(card) {
 function render_cards_container(){
     cards_container.innerHTML = "";
 
-    cards.forEach(card => {
-        card_element = render_card(card);
-
-        cards_container.appendChild(card_element)
+    card_nodes.forEach(node => {
+        cards_container.appendChild(node)
     });
 }
-
