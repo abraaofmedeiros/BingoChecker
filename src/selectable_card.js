@@ -32,6 +32,7 @@ function render_selectable_card(selected_numbers, render_method) {
                 // Marcar item
                 btn.addEventListener('click', () => {
                     selected_numbers.push(i);
+
                     render_method();
                 })
             } else {

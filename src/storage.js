@@ -5,7 +5,9 @@ function setStorage(name, item) {
 
 function getStorage(name) {
     let jsonString = localStorage.getItem(name);
-    let item = JSON.parse(jsonString);
 
-    return item;
+    if (jsonString) {
+        return JSON.parse(jsonString);
+    }
+    return null;
 }

@@ -1,6 +1,8 @@
 const cards_container = document.getElementById("cards_container");
 
 function generate_card_node(card) {
+    let drawn_numbers = getDrawnNumbers();
+
     let card_container = document.createElement('div');
     card_container.classList.add('card-container');
     card_container.setAttribute('data-card-id', card.id);
@@ -14,6 +16,10 @@ function generate_card_node(card) {
         const element = document.createElement('div');
         element.classList.add('bingo-number');
         element.textContent = number;
+
+        if(drawn_numbers.includes(number)) {
+            element.classList.add("drawn")
+        }
 
         bingo_card_element.appendChild(element);
     });
@@ -52,4 +58,14 @@ function render_cards_container(){
     card_nodes.forEach(node => {
         cards_container.appendChild(node)
     });
+}
+
+function generate_card_nodes() {
+    cards = getCards();
+
+    let nodes = cards.map(card => {
+        return generate_card_node(card)
+    })
+
+    card_nodes = nodes;
 }

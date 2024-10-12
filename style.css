@@ -19,3 +19,8 @@
   background-color: #4CAF50;
   color: white;
 }
+
+.drawn {
+  background-color: red;
+  color: white;
+}

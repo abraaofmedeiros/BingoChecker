@@ -13,13 +13,12 @@ const card_size = 9;
 ];*/
 
 let cards = getCards();
-
-const card_nodes = cards.map(card => {
-    return generate_card_node(card)
-    
-})
-
+let drawn_numbers = getDrawnNumbers();
 let new_card_selected_numbers = [];
 
+let card_nodes = []; 
+generate_card_nodes();
+
+render_game_card();
 render_creater_card();
 render_cards_container();
