@@ -12,7 +12,7 @@ const card_size = 9;
     }
 ];*/
 
-let cards = []
+let cards = getCards();
 
 const card_nodes = cards.map(card => {
     return generate_card_node(card)

@@ -1,4 +1,6 @@
 function addCard(numbers) {
+    cards = getCards();
+
     const newId = cards.length > 0 ? Math.max(...cards.map(card => card.id)) + 1 : 0;
 
     const newCard = {
@@ -16,6 +18,8 @@ function addCard(numbers) {
 }
 
 function removeCard(id) {
+    cards = getCards();
+
     cards = cards.filter(card => card.id !== id);
     setStorage('cards', cards);
 
@@ -26,6 +30,8 @@ function removeCard(id) {
 }
 
 function putCard(new_version_card) {
+    cards = getCards();
+
     let index = cards.findIndex(card => card.id === new_version_card.id);
 
     if (index !== -1) {
@@ -41,8 +47,23 @@ function putCard(new_version_card) {
 }
 
 function getCard(id) {
+    cards = getCards();
+    
     let index = cards.findIndex(card => card.id == id);
 
     let card = cards[index];
     return card;
+}
+
+function getCards() {
+    let cards = getStorage('cards').map(card => {
+        let numbers = card.numbers.map(number => parseInt(number));
+
+        return {
+            id: card.id,
+            numbers: numbers
+        }
+    }) || [];
+
+    return cards
 }
