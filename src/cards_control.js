@@ -56,14 +56,18 @@ function getCard(id) {
 }
 
 function getCards() {
-    let cards = getStorage('cards').map(card => {
-        let numbers = card.numbers.map(number => parseInt(number));
+    let cards = getStorage('cards')
+    
+    if(cards) {
+        return cards.map(card => {
+            let numbers = card.numbers.map(number => parseInt(number));
+    
+            return {
+                id: card.id,
+                numbers: numbers
+            }
+        });
+    }
 
-        return {
-            id: card.id,
-            numbers: numbers
-        }
-    }) || [];
-
-    return cards
+    return [];
 }
