@@ -1,7 +1,7 @@
 class Card {
     constructor({ id, numbers }) {
         this.id = id;
-        this.numbers = numbers
+        this.numbers = new Set(numbers);
 
         this.container = document.createElement('div');
         this.container.classList.add('card_container');
@@ -28,18 +28,12 @@ class Card {
         this.container.appendChild(this.editBtn);
         this.container.appendChild(this.deleteBtn);
 
-
         this.cardContainer.innerHTML = "";
-        this.numbers.sort((a, b) => a - b);
 
         this.numbers.forEach(number => {
             const numberBtn = document.createElement("div");
             numberBtn.classList.add('bingo-number');
             numberBtn.textContent = number;
-
-            /*if (this.selectedNumbers.has(i)) {
-                numberBtn.classList.add('selected');
-            }*/
 
             this.cardContainer.appendChild(numberBtn);
         });
@@ -64,6 +58,16 @@ class Card {
                 numberElement.classList.remove('drawn');
             }
         });
+
+
+        let isWinner = [...this.numbers].every(num => drawn_numbers.has(num))
+
+        if (isWinner) {
+            this.container.classList.add('winner-card');
+        } else {
+            this.container.classList.remove('winner-card');
+        }
+
         return this.container;
     }
 

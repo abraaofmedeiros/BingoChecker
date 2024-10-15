@@ -8,7 +8,7 @@ class EditCard extends CreaterCard {
     save() {
         let card = {
             id: this.id,
-            numbers: this.getSelectedNumbers()
+            numbers: new Set(this.getSelectedNumbers())
         };
 
         cardManager.putCard(card);

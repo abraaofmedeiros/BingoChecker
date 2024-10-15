@@ -24,3 +24,7 @@
   background-color: red;
   color: white;
 }
+
+.winner-card {
+  border: 1px solid red;
+}

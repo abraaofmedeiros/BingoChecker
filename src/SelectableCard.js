@@ -45,7 +45,7 @@ class SelectableCard {
     }
 
     getSelectedNumbers() {
-        return Array.from(this.selectedNumbers);
+        return this.selectedNumbers;
     }
 
     clearCard() {

@@ -21,7 +21,7 @@ class CardManager {
 
             return {
                 id: card.id,
-                numbers: numbers
+                numbers: new Set(numbers)
             }
         });
 
@@ -30,7 +30,7 @@ class CardManager {
 
     setCards() {
         let cards = this.cards.map(({ id, numbers }) => {
-            return { id, numbers }
+            return { id, numbers: [...numbers] }
         })
 
         setStorage('cards', cards);
