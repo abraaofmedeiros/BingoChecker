@@ -10,23 +10,34 @@
 </head>
 <body>
     <div id="app">
-        <div id="game_card"></div>
-        
-        <div id="creater_card"></div>
+        <div id="game_card">
+            <h2>Cartela Principal</h2>
 
-        <div id="cards_container"></div>
+            <div id="game_card_board"></div>
+        </div>
+        
+        <div id="creater_card">
+            <h2>Cadastro de Novas Cartelas</h2>
+
+            <div id="creater_card_board"></div>
+        </div>
+
+        <div id="cards_container">
+            <h2>Minhas Cartelas</h2>
+
+            <div id="cards"></div>
+        </div>
 
     </div>
-
-    <script src="./src/card_nodes_control.js"></script>
-    <script src="./src/drawn_numbers_control.js"></script>
-    <script src="./src/cards_control.js"></script>
-    <script src="./src/game_card.js"></script>
-    <script src="./src/creater_card.js"></script>
-    <script src="./src/edit_card.js"></script>
-    <script src="./src/render_cards.js"></script>
-    <script src="./src/selectable_card.js"></script>
+    
     <script src="./src/storage.js"></script>
-    <script src="./src/index.js"></script>
+    <script src="./src/application.js"></script>
+    <script src="./src/CardManager.js"></script>
+    <script src="./src/SelectableCard.js"></script>
+    <script src="./src/MainCard.js"></script>
+    <script src="./src/CreaterCard.js"></script>
+    <script src="./src/EditCard.js"></script>
+    <script src="./src/Card.js"></script>
+    <script src="./src/main.js"></script>
 </body>
 </html>
