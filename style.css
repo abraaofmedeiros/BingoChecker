@@ -213,6 +213,11 @@ header {
   color: var(--color-winner);
 }
 
+.cards-container .card.winner-card .buttons-container button {
+  border-color: var(--color-winner);
+  color: var(--color-winner);
+}
+
 @media (max-width: 500px) {
   .bingo-card {
     display: grid;
