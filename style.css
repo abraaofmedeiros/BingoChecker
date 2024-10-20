@@ -82,10 +82,14 @@ header {
   text-align: center;
   padding: 3rem;
 
-  position: fixed; /* Fixar no topo */
-  top: 0; /* Garantir que ele esteja no topo */
-  width: 100%; /* Para que o cabeçalho ocupe toda a largura da tela */
-  z-index: 1000; /* Garantir que o cabeçalho fique acima de outros elementos */
+  position: fixed;
+  /* Fixar no topo */
+  top: 0;
+  /* Garantir que ele esteja no topo */
+  width: 100%;
+  /* Para que o cabeçalho ocupe toda a largura da tela */
+  z-index: 1000;
+  /* Garantir que o cabeçalho fique acima de outros elementos */
 }
 
 /* App Container */
@@ -207,13 +211,13 @@ header {
   gap: 2rem;
 }
 
-.cards-container .card.winner-card .bingo-number {
+.cards-container .card.winner-card > .bingo-card .bingo-number {
   border: var(--bingo-number-border-thick);
   border-color: var(--color-winner);
   color: var(--color-winner);
 }
 
-.cards-container .card.winner-card .buttons-container button {
+.cards-container .card.winner-card > .buttons-container button {
   border-color: var(--color-winner);
   color: var(--color-winner);
 }

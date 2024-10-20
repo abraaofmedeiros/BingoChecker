@@ -34,21 +34,13 @@ Esta é uma aplicação para checar cartelas de bingo desenvolvido utilizando HT
 
 ## Como Executar o Projeto
 
-1. Clone o repositório para a sua máquina local.
-   ```bash
-   git clone https://github.com/abraaofmedeiros/BingoChecker.git
+1. Acesse https://abraaofmedeiros.github.io/BingoChecker/.
 
-2. Navegue até o diretório do projeto.
+2. Abra o arquivo index.html no seu navegador preferido.
 
-    '''bash
+3. Na seção "Cadastro de Novas Cartelas", selecione os números que compoẽm a cartela e em seguida clique em "Adicionar Cartela" e visualize a nova cartela
 
-    cd bingoChecker
-
-3. Abra o arquivo index.html no seu navegador preferido.
-
-4. Na seção "Cadastro de Novas Cartelas", selecione os números que compoẽm a cartela e em seguida clique em "Adicionar Cartela" e visualize a nova cartela
-
-5. Na seção "Cartela Principal", selecione os números sorteados no bingo e veja os números sendo marcados nas cartelas cadastradas.
+4. Na seção "Cartela Principal", selecione os números sorteados no bingo e veja os números sendo marcados nas cartelas cadastradas.
 
 
 ### Contribuição
