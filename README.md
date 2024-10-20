@@ -38,7 +38,15 @@ Esta é uma aplicação para checar cartelas de bingo desenvolvido utilizando HT
 
 2. Na seção "Cadastro de Novas Cartelas", selecione os números que compoẽm a cartela e em seguida clique em "Adicionar Cartela" e visualize a nova cartela
 
-3. Na seção "Cartela Principal", selecione os números sorteados no bingo e veja os números sendo marcados nas cartelas cadastradas.
+https://github.com/user-attachments/assets/66b04da4-e61a-4365-9dba-ec9c138fdd6a
+
+3. É possível também editar e excluir cartelas.
+
+https://github.com/user-attachments/assets/987a4883-3749-40b2-9a87-06539c06088d
+
+4. Na seção "Cartela Principal", selecione os números sorteados no bingo e veja os números sendo marcados nas cartelas cadastradas.
+
+https://github.com/user-attachments/assets/ace3f722-6c11-47e0-9531-b1aa5bb293a6
 
 
 ### Contribuição
