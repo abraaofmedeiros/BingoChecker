@@ -1,30 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --ff: 'Roboto', sans-serif;
+  --ff-secondary: 'Roboto Mono', monospace;
+
+  --bingo-number-border-thick: 3px solid;
+
+  --color-selected: rgb(34, 122, 31);
+  --color-disabled: rgba(0, 0, 0, 0.219);
+  --color-drawn: rgb(192, 5, 5);
+  --color-winner: rgb(0, 101, 168);
+
+  --bg-color-header: rgb(4, 4, 4);
+  --bg-color-primary: rgb(238, 246, 255);
+  --bg-color-secondary: rgb(255, 255, 255);
+  --bg-color-secondary-hover: rgb(230, 230, 230);
+  --bg-color-button: rgb(255, 255, 255);
+  --bg-color-button-hover: rgb(170, 200, 224);
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: var(--ff);
+
+  background: var(--bg-color-primary);
+  padding-top: 9rem;
+}
+
+/* Estilo base para todos os botões */
+button {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* border: none; */
+
+  background-color: var(--bg-color-button);
+
+  font-weight: bold;
+}
+
+button:enabled:hover {
+  background-color: var(--bg-color-button-hover);
+}
+
+button:disabled:hover {
+  background-color: var(--bg-color-button);
+  cursor: not-allowed;
+}
+
+.edit-btn,
+.delete-btn {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  transform: scale(1.1);
+}
+
+.clear-btn,
+.save-btn {
+  padding: 1rem 2rem;
+}
+
+/* Header */
+header {
+  background-color: var(--bg-color-header);
+  color: white;
+  text-align: center;
+  padding: 3rem;
+
+  position: fixed; /* Fixar no topo */
+  top: 0; /* Garantir que ele esteja no topo */
+  width: 100%; /* Para que o cabeçalho ocupe toda a largura da tela */
+  z-index: 1000; /* Garantir que o cabeçalho fique acima de outros elementos */
+}
+
+/* App Container */
+
+#app {
+  display: flex;
+  gap: 2rem;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+#app .app-section h2 {
+  text-align: center;
+  font-size: 3rem;
+
+  margin-bottom: 2rem;
+}
+
+/* Dynamic Container */
+#dynamic-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+/* Card Container */
+.card-container {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  grid-template-rows: auto auto;
+}
+
+.card-container .buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+}
+
+/* Bingo Card */
 .bingo-card {
   display: grid;
   grid-template-columns: repeat(10, auto);
-  gap: 2px;
-  max-width: 200px;
+  gap: 8px;
 }
 
-.bingo-number {
-  width: 20px;
-  height: 20px;
+.bingo-card .bingo-number {
+  /* border: 1px solid; */
+  border-color: var(--color-regular);
+  color: var(--color-regular);
+
+  background-color: var(--bg-color-secondary);
+
+  width: 4rem;
+  height: 4rem;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #000;
+
+  text-decoration: none;
+
+  font-weight: 700;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.bingo-card .bingo-number.drawn {
+  border: var(--bingo-number-border-thick);
+  border-color: var(--color-drawn);
+  color: var(--color-drawn);
+}
+
+/* Selectable Card */
+.selectable-card .bingo-number {
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+
+}
+
+.selectable-card .bingo-number:hover {
+  transform: scale(1.1);
+  background-color: var(--bg-color-secondary-hover);
+}
+
+
+.creater-card.complete-board .bingo-number {
+  color: var(--color-disabled);
+  cursor: not-allowed;
+}
+
+.creater-card.complete-board .bingo-number.selected,
+.bingo-number.selected {
+  border: var(--bingo-number-border-thick);
+  border-color: var(--color-selected);
+  color: var(--color-selected);
   cursor: pointer;
 }
 
-.selected {
-  background-color: #4CAF50;
-  color: white;
+/* Cards Container */
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  row-gap: 2rem;
 }
 
-.drawn {
-  background-color: red;
-  color: white;
+.cards-container .card {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-.winner-card {
-  border: 1px solid red;
+.cards-container .card.winner-card .bingo-number {
+  border: var(--bingo-number-border-thick);
+  border-color: var(--color-winner);
+  color: var(--color-winner);
+}
+
+@media (max-width: 500px) {
+  .bingo-card {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+  }
 }

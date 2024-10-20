@@ -1,6 +1,8 @@
 class CardManager {
     constructor() {
         this.container = document.createElement('div');
+        this.container.classList.add('cards-container');
+        
         this.cards = this.renderCards();
         this.render();
     }

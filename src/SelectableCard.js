@@ -3,16 +3,22 @@ class SelectableCard {
         this.selectedNumbers = new Set(numbers);
 
         this.container = document.createElement('div');
+        this.container.classList.add('selectable-card', 'card-container')
 
         this.cardContainer = document.createElement('div');
         this.cardContainer.className = 'bingo-card';
         this.container.appendChild(this.cardContainer);
 
+        this.buttonsContainer = document.createElement('div');
+        this.buttonsContainer.classList.add('buttons-container');
+        this.container.appendChild(this.buttonsContainer);
+
         this.clearBtn = document.createElement('button');
-        this.clearBtn.textContent = "limpar";
+        this.clearBtn.innerHTML = 'Desmarcar Todos';
+        this.clearBtn.classList.add('clear-btn');
         this.clearBtn.addEventListener('click', this.clearCard.bind(this));
 
-        this.container.appendChild(this.clearBtn); 
+        this.buttonsContainer.appendChild(this.clearBtn); 
 
         this.renderCard();
     }

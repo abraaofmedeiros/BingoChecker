@@ -2,18 +2,30 @@ class CreaterCard extends SelectableCard {
     constructor(numbers) {
         super(numbers);
 
+        this.container.classList.add('creater-card');
+
         this.saveBtn = document.createElement('button');
-        this.saveBtn.textContent = "salvar";
+        this.saveBtn.innerHTML = 'Adicionar Cartela';
+        this.saveBtn.classList.add('save-btn')
         this.saveBtn.addEventListener("click", this.save.bind(this))
 
-        this.container.appendChild(this.saveBtn);
+        this.buttonsContainer.appendChild(this.saveBtn);
 
         this.render();
     }
 
     render() {
         this.renderCard()
-        this.saveBtn.disabled = this.selectedNumbers.size !== 10;
+
+        let completeBoard = this.selectedNumbers.size === 10;
+
+        if (completeBoard) {
+            this.container.classList.add('complete-board');
+        } else {
+            this.container.classList.remove('complete-board');
+        }
+
+        this.saveBtn.disabled = !completeBoard;
     }
 
     markNumber(number) {

@@ -1,32 +1,38 @@
 class Card {
     constructor({ id, numbers }) {
         this.id = id;
-        this.numbers = new Set(numbers);
+        this.numbers = new Set([...numbers].sort((a, b) => a - b));
 
         this.container = document.createElement('div');
-        this.container.classList.add('card_container');
+        this.container.classList.add('card-container', 'card');
 
         this.cardContainer = document.createElement('div');
         this.cardContainer.classList.add('bingo-card');
 
+        this.buttonsContainer = document.createElement('div');
+        this.buttonsContainer.classList.add('buttons-container')
+        
         this.editBtn = document.createElement('button');
-        this.editBtn.textContent = "editar";
+        this.editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
+        this.editBtn.classList.add('edit-btn');
         this.editBtn.addEventListener('click', this.renderEditCard.bind(this));
-
+        this.buttonsContainer.appendChild(this.editBtn);
+        
         this.deleteBtn = document.createElement('button');
-        this.deleteBtn.textContent = "deletar";
+        this.deleteBtn.innerHTML = '<i class="fa-solid fa-trash"></i>'
+        this.deleteBtn.classList.add('delete-btn')
         this.deleteBtn.addEventListener('click', () => {
             cardManager.deleteCard(this);
         });
-
+        this.buttonsContainer.appendChild(this.deleteBtn);
+        
         this.renderCard();
     }
-
+    
     renderCard() {
         this.container.innerHTML = "";
         this.container.appendChild(this.cardContainer);
-        this.container.appendChild(this.editBtn);
-        this.container.appendChild(this.deleteBtn);
+        this.container.appendChild(this.buttonsContainer);
 
         this.cardContainer.innerHTML = "";
 

@@ -2,6 +2,8 @@ class EditCard extends CreaterCard {
     constructor({ id, numbers }) {
         super(numbers);
 
+        this.saveBtn.innerHTML = 'Salvar';
+
         this.id = id
     }
 

@@ -14,5 +14,4 @@ const application = {
     clearDrawnNumbers() {
         this.setDrawnNumbers([])
     }
-
 }

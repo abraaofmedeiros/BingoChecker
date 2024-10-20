@@ -1,35 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <title>Bingo Checker</title>
 </head>
+
 <body>
+    <header>
+        <h1>Bingo Checker</h1>
+    </header>
     <div id="app">
-        <div id="game_card">
-            <h2>Cartela Principal</h2>
 
-            <div id="game_card_board"></div>
+        <div id="dynamic-container">
+            <div id="creater_card" class="app-section">
+                <h2>Cadastro de Novas Cartelas</h2>
+
+                <div id="creater_card_board"></div>
+            </div>
+
+            <div id="game_card" class="app-section">
+                <h2>Cartela Principal</h2>
+
+                <div id="game_card_board"></div>
+            </div>
         </div>
-        
-        <div id="creater_card">
-            <h2>Cadastro de Novas Cartelas</h2>
 
-            <div id="creater_card_board"></div>
-        </div>
-
-        <div id="cards_container">
+        <div id="cards_container" class="app-section">
             <h2>Minhas Cartelas</h2>
 
             <div id="cards"></div>
         </div>
 
     </div>
-    
+
     <script src="./src/storage.js"></script>
     <script src="./src/application.js"></script>
     <script src="./src/CardManager.js"></script>
@@ -40,4 +55,5 @@
     <script src="./src/Card.js"></script>
     <script src="./src/main.js"></script>
 </body>
+
 </html>
